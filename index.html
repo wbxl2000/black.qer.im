@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div id="tip"> Click or press ENTER for Fullscreen </div>
+  <div id="tip"> Click or press ENTER to enter Fullscreen </div>
 </body>
 
 </html>
@@ -37,18 +37,22 @@
 
   var userLang = navigator.language || navigator.userLanguage;
   if (userLang === 'zh-CN') document.getElementById('tip').innerHTML = '点击或按下回车键进入全屏';
-  else document.getElementById('tip').innerHTML = 'Click or press \'ENTER\' for Fullscreen';
+  else document.getElementById('tip').innerHTML = 'Click or press \'ENTER\' to enter Fullscreen';
 
   function toggleFullScreen() {
     if (!document.fullscreenElement) {
       document.documentElement.style.cursor = 'none';
       document.getElementById('tip').style.opacity = '0';
       document.documentElement.requestFullscreen();
+      if (userLang === 'zh-CN') document.getElementById('tip').innerHTML = '点击或按下回车键退出全屏';
+      else document.getElementById('tip').innerHTML = 'Click or press \'ENTER\' to exit Fullscreen';
     } else {
       if (document.exitFullscreen) {
         document.getElementById('tip').style.opacity = '100%';
         document.documentElement.style.cursor = 'auto';
         document.exitFullscreen();
+        if (userLang === 'zh-CN') document.getElementById('tip').innerHTML = '点击或按下回车键进入全屏';
+        else document.getElementById('tip').innerHTML = 'Click or press \'ENTER\' to enter Fullscreen';
       }
     }
   }
