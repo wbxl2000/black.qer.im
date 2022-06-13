@@ -1,5 +1,9 @@
 # black.qer.im
- 
+
+## Introduction
+
+"turn off" one of the screens when your other screen is watching a movie, playing a game, etc.
+
 ## Feature
 
 - [x] 提示快捷键
