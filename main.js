@@ -9,6 +9,10 @@ const enText = {
   'exit': 'Click or press \'ENTER\' to exit Fullscreen'
 };
 
+function isFullScreen() {
+  return document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+}
+
 function freshLanguage() {
   const status = isFullScreen() ? 'exit' : 'enter';
   const text = (userLang === 'zh-CN') ? zhText[status] : enText[status];
@@ -29,10 +33,6 @@ function enterFullscreen() {
 function exitFullscreen() {
   textDisplay('auto', '100');
   freshLanguage();
-}
-
-function isFullScreen() {
-  return document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 }
 
 async function toggleFullScreen() {
