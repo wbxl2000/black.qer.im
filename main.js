@@ -1,4 +1,4 @@
-
+const imgData = localStorage.getItem("imgData");
 const userLang = navigator.language || navigator.userLanguage;
 const zhText = {
   'enter': '点击或按下回车键进入全屏',
@@ -61,24 +61,41 @@ function mousemove() {
   }, 600);
 };
 
-exitFullscreen();
-document.addEventListener('click', toggleFullScreen);
-document.addEventListener('keydown', event => (event.key === 'Enter') && toggleFullScreen());
-document.onmousemove = function () {
-  mousemove();
-};
+function saveImage(file) {
+  const FR = new FileReader();
+  FR.addEventListener("load", function (evt) {
+    localStorage.setItem("imgData", evt.target.result);
+  });
+  FR.readAsDataURL(file);
+}
+
+function setBackground(url) {
+  document.body.style.background = `url("${url}") no-repeat`;
+  document.body.style.backgroundSize = 'cover';
+  document.getElementsByClassName('control')[0].style.backgroundColor = 'black';
+}
 
 const input = document.querySelector('input');
 input.addEventListener('change', function () {
   const curFiles = input.files;
   if (curFiles.length !== 1) return;
-  var url = URL.createObjectURL(curFiles[0]);
-  document.body.style.background = `url("${url}") no-repeat`;
-  document.body.style.backgroundSize = 'cover';
-  document.getElementsByClassName('control')[0].style.backgroundColor = 'black';
+  const url = URL.createObjectURL(curFiles[0]);
+  setBackground(url);
+  saveImage(curFiles[0]);
 });
 
 const turnBlack = document.querySelector('button');
 turnBlack.addEventListener('click', function () {
   document.body.style.background = ``;
+  localStorage.setItem("imgData", "");
 });
+
+exitFullscreen();
+if (imgData && imgData !== '') {
+  setBackground(imgData);
+}
+document.addEventListener('click', toggleFullScreen);
+document.addEventListener('keydown', event => (event.key === 'Enter') && toggleFullScreen());
+document.onmousemove = function () {
+  mousemove();
+};
