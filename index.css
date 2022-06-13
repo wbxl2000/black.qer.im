@@ -2,14 +2,20 @@ body {
   background-color: black;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  font-family: huawenzhongsong;
 }
 
-#tip {
+.text {
   color: white;
   font-size: 24px;
   transition: opacity 0.6s ease-out;
   font-family: huawenzhongsong;
+}
+
+#github {
+  font-size: 14px;
+  text-decoration: none;
 }
 
 @font-face {

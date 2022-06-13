@@ -18,6 +18,7 @@ function freshLanguage() {
 function textDisplay(cursor, opacity) {
   document.documentElement.style.cursor = cursor;
   document.getElementById('tip').style.opacity = opacity;
+  document.getElementById('github').style.opacity = opacity;
 }
 
 function enterFullscreen() {
@@ -46,11 +47,6 @@ async function toggleFullScreen() {
   }
 }
 
-
-exitFullscreen();
-document.addEventListener('click', toggleFullScreen);
-document.addEventListener('keydown', event => (event.key === 'Enter') && toggleFullScreen());
-
 let timer;
 function mousemove() {
   if (timer) {
@@ -62,6 +58,9 @@ function mousemove() {
   }, 600);
 };
 
+exitFullscreen();
+document.addEventListener('click', toggleFullScreen);
+document.addEventListener('keydown', event => (event.key === 'Enter') && toggleFullScreen());
 document.onmousemove = function () {
   mousemove();
 };
