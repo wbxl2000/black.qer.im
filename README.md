@@ -2,7 +2,7 @@
 
 ## Introduction
 
-"turn off" one of the screens when your other screen is watching a movie, playing a game, etc.
+"turn off" one screen when your other screen is watching a movie, playing a game, etc.
 
 ## Feature
 
