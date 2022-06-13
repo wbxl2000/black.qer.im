@@ -13,10 +13,16 @@
 </head>
 
 <body>
-  <div id="tip" class="text"> Click or press ENTER to enter Fullscreen </div>
-  <a id="github" class="text" href="https://github.com/wbxl2000/black.qer.im" target="_blank"
-    onclick="event.stopPropagation()">
-    github.com/wbxl2000/black.qer.im</a>
+  <div class="control">
+    <div id="tip" class="text"> Click or press ENTER to enter Fullscreen </div>
+    <a id="github" class="text" href="https://github.com/wbxl2000/black.qer.im" target="_blank"
+      onclick="event.stopPropagation()">
+      github.com/wbxl2000/black.qer.im</a>
+    <div class="background">
+      <button type="file" class="custom-button" onclick="event.stopPropagation()"> turn black</button>
+      <input type="file" class="custom-file-input" accept="image/png, image/jpeg" onclick="event.stopPropagation()">
+    </div>
+  </div>
 </body>
 
 </html>

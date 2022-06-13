@@ -21,8 +21,7 @@ function freshLanguage() {
 
 function textDisplay(cursor, opacity) {
   document.documentElement.style.cursor = cursor;
-  document.getElementById('tip').style.opacity = opacity;
-  document.getElementById('github').style.opacity = opacity;
+  document.body.style.opacity = opacity;
 }
 
 function enterFullscreen() {
@@ -54,7 +53,11 @@ function mousemove() {
     textDisplay('auto', '100');
   }
   timer = setTimeout(function () {
-    textDisplay('none', '0');
+    const isHover = e => e.parentElement.querySelector(':hover') === e;
+    const hovered = isHover(document.getElementsByClassName('control')[0]);
+    if (!hovered) {
+      textDisplay('none', '0');
+    }
   }, 600);
 };
 
@@ -64,3 +67,18 @@ document.addEventListener('keydown', event => (event.key === 'Enter') && toggleF
 document.onmousemove = function () {
   mousemove();
 };
+
+const input = document.querySelector('input');
+input.addEventListener('change', function () {
+  const curFiles = input.files;
+  if (curFiles.length !== 1) return;
+  var url = URL.createObjectURL(curFiles[0]);
+  document.body.style.background = `url("${url}") no-repeat`;
+  document.body.style.backgroundSize = 'cover';
+  document.getElementsByClassName('control')[0].style.backgroundColor = 'black';
+});
+
+const turnBlack = document.querySelector('button');
+turnBlack.addEventListener('click', function () {
+  document.body.style.background = ``;
+});
