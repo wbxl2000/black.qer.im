@@ -1,0 +1,18 @@
+body {
+  background-color: black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#tip {
+  color: white;
+  font-size: 24px;
+  transition: opacity 0.6s ease-out;
+  font-family: huawenzhongsong;
+}
+
+@font-face {
+  font-family: 'huawenzhongsong';
+  src: url('./hwzs.ttf');
+}
