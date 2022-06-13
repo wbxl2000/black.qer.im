@@ -3,7 +3,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-family: huawenzhongsong;
+  font-family: huawenzhongsong, system-ui;
 }
 
 .text {
@@ -20,5 +20,5 @@ body {
 
 @font-face {
   font-family: 'huawenzhongsong';
-  src: url('./hwzs.ttf');
+  src: url('hwzs.ttf');
 }
