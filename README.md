@@ -17,7 +17,7 @@
 - [x] 优化字体加载方式 preload or select character
 - [ ] 鼠标白点样式
 - [x] 定制背景
-- [ ] 背景添加缓存
+- [x] 背景添加缓存
 
 ## Bug
 
